@@ -47,3 +47,7 @@ app.patch("/quotes/:id", async function (req, res) {
     .status(200)
     .json(await editQuote(req.params.id, req.body.quoteText, req.body.author));
 });
+
+app.delete("/quotes/:id", async function (req, res) {
+  res.status(200).json(await deleteQuote(req.params.id));
+});
