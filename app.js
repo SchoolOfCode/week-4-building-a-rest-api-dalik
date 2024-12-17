@@ -19,3 +19,8 @@ app.get("/", function (req, res) {
 app.listen(PORT, function () {
   console.log(`Server is now listening on http://localhost:${PORT}`);
 });
+
+app.get("/quotes", async function (req, res) {
+  //respond with all quotes from quotes.json
+  res.status(200).json(await getQuotes());
+});
