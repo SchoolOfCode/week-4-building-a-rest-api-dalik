@@ -30,3 +30,11 @@ app.get("/quotes/:id", async function (req, res) {
   res.status(200).json(await getQuoteByID(req.params.id));
   // res.send("quotes got get got");
 });
+
+// use app.post to accept a post request
+app.post("/quotes", async function (req, res) {
+  //console.log(req.body);
+  res.status(201).send(await addQuote(req.body.quoteText, req.body.author));
+});
+// use the body of the request to create a new quote using the addQuote helper method
+// send a status 201
